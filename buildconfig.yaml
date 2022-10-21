@@ -1,0 +1,45 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  generation: 15
+  namespace: jcallen-azure-agent
+  labels:
+    build: ocp-azure-agent-layer
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'ocp-azure-agent-layer:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: >-
+          quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:032182615549113df0347f624ee1f4964772c454e5696b7563f26f4920a1679d
+      volumes:
+        - name: etc-pki-entitlement
+          source:
+            type: Secret
+            secret:
+              secretName: etc-pki-entitlement
+              defaultMode: 420
+          mounts:
+            - destinationPath: /etc/pki/entitlement
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/jcpowermac/ocp-azure-agent-layer'
+  triggers:
+    - type: ConfigChange
+    - type: GitHub
+      github:
+        secret: qRcF5gut53QehzN8jQNW
+    - type: Generic
+      generic:
+        secret: 7Vgng0GktbVyAsg6s3Ol
+  runPolicy: Serial
