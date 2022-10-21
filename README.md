@@ -1,5 +1,8 @@
 # ocp-azure-agent-layer
 
+This is just an example, I am sure it won't be useful for anyone without modifications.
+
+[![Docker Repository on Quay](https://quay.io/repository/jcallen/ocp-azure-agent-layer/status "Docker Repository on Quay")](https://quay.io/repository/jcallen/ocp-azure-agent-layer)
 
 Get entitlement
 ```
