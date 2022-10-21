@@ -5,4 +5,4 @@ RUN rm /etc/rhsm-host
 
 RUN rpm-ostree install WALinuxAgent && \
     rpm-ostree cleanup -m && \
-    ostree container commit
+    ostree commit
