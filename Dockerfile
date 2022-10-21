@@ -1,4 +1,4 @@
-FROM quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:3795642c0bc82fd42fe5a4086634b22487394ddf95e0103372423be199bb60f4
+FROM quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:032182615549113df0347f624ee1f4964772c454e5696b7563f26f4920a1679d
 
 COPY ./repos/* /etc/yum.repos.d/
 RUN rm /etc/rhsm-host
