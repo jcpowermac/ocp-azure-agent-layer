@@ -4,5 +4,6 @@ COPY ./repos/* /etc/yum.repos.d/
 RUN rm /etc/rhsm-host
 
 RUN rpm-ostree install WALinuxAgent
+RUN systemctl enable waagent
 RUN rpm-ostree cleanup -m
 RUN ostree container commit
