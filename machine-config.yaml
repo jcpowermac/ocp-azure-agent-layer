@@ -1,0 +1,8 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  labels:
+    machineconfiguration.openshift.io/role: "worker"
+  name: 99-worker-azure
+spec:
+  osImageURL: quay.io/jcallen/ocp-azure-agent-layer@sha256:bfc5c1ba7c20fbece83db421762068a0d1149e37d1a834bfe80d7fc3b7005bc2
