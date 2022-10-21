@@ -3,6 +3,6 @@ FROM quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:032182615549113df0347
 COPY ./repos/* /etc/yum.repos.d/
 RUN rm /etc/rhsm-host
 
-RUN rpm-ostree install WALinuxAgent && \
-    rpm-ostree cleanup -m && \
-    ostree commit
+RUN rpm-ostree install WALinuxAgent
+RUN rpm-ostree cleanup -m
+RUN ostree container commit
